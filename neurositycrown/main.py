@@ -37,8 +37,10 @@ def main():
     roverInit()
 
     # unsubscribe = neurosity.brainwaves_raw(callback)
-    unsubscribe = neurosity.kinesis("rightArm", callback)
-
+    # unsubscribe = neurosity.kinesis("rightArm", callback)
+    unsubscribe = neurosity.kinesis("leftArm", callback)
+    
+    # unsubscribe = neurosity.focus(callback)
 
 
 def callback(data):
@@ -46,13 +48,19 @@ def callback(data):
     print(data['metric'], data['label'], ":", data['confidence'])
 
     # global Motors
-    
-    time.sleep(1)
-    Motors.moveDistance(int(forwardDistance))
-    # current_trigger = time.time()
 
-    # if (not (current_trigger - last_trigger < 2)):
-    #     Motors.moveDistance(int(forwardDistance))
+    global last_trigger
+    
+    # time.sleep(1)
+    # Motors.moveDistance(int(forwardDistance))
+    current_trigger = time.time()
+
+    diff = current_trigger - last_trigger
+    print("diff:", diff)
+
+    if ((diff > 3) & (data['confidence'] > 0.9)):
+        Motors.moveDistance(int(forwardDistance))
+        last_trigger = current_trigger
 
 def roverInit():
     rc = RoverController()

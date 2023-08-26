@@ -25,15 +25,15 @@ robot.connectBLE("83")
 
 def focus_callback(data):
     speed = data['probability'] * 60
-    motors.write(speed)
+    motors.write(speed,secs = 1)
     print(data['probability'])
     
-    # LED intensity proportional to focus
-    led_intensity = int(data['probability'] * 255)
-    leds.setAll(led_intensity, 0, 0)  # Red color intensity based on focus
+    # # LED intensity proportional to focus
+    # led_intensity = int(data['probability'] * 255)
+    # leds.setAll(led_intensity, 0, 0)  # Red color intensity based on focus
     
-    # Play accelerating sound for increased focus
-    if speed > 15:
-        sounds.playTune(TUNES.UP)
+    # # Play accelerating sound for increased focus
+    # if speed > 15:
+    #     sounds.playTune(TUNES.UP)
 
 unsubscribe_focus = neurosity.focus(focus_callback)
