@@ -1,45 +1,37 @@
 from neurosity import NeurositySDK
-# from dotenv import load_dotenv
 import os
 
 from micromelon import *
 import time
 
-
 NEUROSITY_EMAIL = 'reubenr202@gmail.com'
 NEUROSITY_PASSWORD = 'neuro123'
 NEUROSITY_DEVICE_ID = 'e88770a76231aac1ca98f41e7c9094cd'
 
-# load_dotenv()
-
-neurosity = NeurositySDK({
-    # "device_id": os.getenv("NEUROSITY_DEVICE_ID"),
-    "device_id": NEUROSITY_DEVICE_ID,
-})
-
-# neurosity = NeurositySDK({"device_id": 'e88770a76231aac1ca98f41e7c9094cd'})
-
-neurosity.login({
-    "email": NEUROSITY_EMAIL,
-    "password": NEUROSITY_PASSWORD
-})
-
-rover = False
 forwardDistance = 2
 
 last_trigger = time.time()
 
-
-
-
 def main():
 
+    # Initialize Neurosity Crown object
+    neurosity = NeurositySDK({
+    "device_id": NEUROSITY_DEVICE_ID,
+    })
+
+    # Log into the Neurosity API
+    neurosity.login({
+    "email": NEUROSITY_EMAIL,
+    "password": NEUROSITY_PASSWORD
+    })
+
+    # Initialise micromelon rover
     roverInit()
 
+    unsubscribe = neurosity.kinesis("rightArm", callback)
+    # unsubscribe = neurosity.kinesis("leftArm", callback)
+
     # unsubscribe = neurosity.brainwaves_raw(callback)
-    # unsubscribe = neurosity.kinesis("rightArm", callback)
-    unsubscribe = neurosity.kinesis("leftArm", callback)
-    
     # unsubscribe = neurosity.focus(callback)
 
 
@@ -63,14 +55,11 @@ def callback(data):
         last_trigger = current_trigger
 
 def roverInit():
+    """Initialize the Micromelon rover"""
     rc = RoverController()
 
-    rc.connectBLE(83)
+    rc.connectBLE(116)
     rc.startRover()
-    
-
-    rover = True
-
 
 main()
 
