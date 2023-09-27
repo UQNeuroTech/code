@@ -9,7 +9,10 @@ NEUROSITY_PASSWORD = 'neuro123'
 NEUROSITY_DEVICE_ID = 'e88770a76231aac1ca98f41e7c9094cd'
 
 # Distance (in cm) that the micromelon moves forward when you activate kenisis
-forwardDistance = 2
+forwardDistance = 5
+
+# Angle (in degrees) that the micromelon turns when you activate kenisis
+turnAngle = 5
 
 # Track the last time that kenesis was activated
 last_trigger = time.time()
@@ -31,7 +34,7 @@ def main():
     roverInit()
 
     unsubscribe = neurosity.kinesis("rightArm", callback)
-    # unsubscribe = neurosity.kinesis("leftArm", callback)
+    unsubscribe2 = neurosity.kinesis("leftArm", callback)
 
     # unsubscribe = neurosity.brainwaves_raw(callback)
     # unsubscribe = neurosity.focus(callback)
@@ -53,6 +56,11 @@ def callback(data):
     print("diff:", diff)
 
     if ((diff > 3) & (data['confidence'] > 0.9)):
+        if data['label'] == 'leftArm':
+            Motors.turnDegrees(-int(turnAngle))
+        else:
+            Motors.turnDegrees(int(turnAngle))
+        
         Motors.moveDistance(int(forwardDistance))
         last_trigger = current_trigger
 
