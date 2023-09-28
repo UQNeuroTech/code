@@ -17,3 +17,12 @@ Use this demo code if you are competing with a Neurosity Crown EEG headset.
 ### mind-bot-race/myo-armband
 
 Use this demo code if you are competing with a MYO Armband EMG headset.
+
+
+
+# Contributers:
+
+- Devin
+- [Reuben Richardson](https://github.com/Dooganar)
+- Ayman Diallo
+- Seijun Stokes
