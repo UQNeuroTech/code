@@ -26,3 +26,4 @@ Use this demo code if you are competing with a MYO Armband EMG headset.
 - [Reuben Richardson](https://github.com/Dooganar)
 - Ayman Diallo
 - Seijun Stokes
+- [Timothy Mead](https://github.com/TTMead)

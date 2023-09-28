@@ -1,4 +1,4 @@
-# Mind-Bot Race demo code for the neurosity crown
+# Mind-Bot Race demo code for the Neurosity Crown
 
 ## crown_test.py
 
