@@ -1,1 +1,3 @@
-## Mind-Bot Race Demo code for the MYO armband is not yet completed
+# Mind-Bot Race Demo code for the MYO Armband 
+
+...is not yet completed

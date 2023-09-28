@@ -33,11 +33,30 @@ def main():
     # Initialise micromelon rover
     roverInit()
 
-    unsubscribe = neurosity.kinesis("rightArm", callback)
-    unsubscribe2 = neurosity.kinesis("leftArm", callback)
+    # Please choose which kinesis metrics you want to use:
+    kinesis_type_1 = "rightARM"
+    kinesis_type_2 = "leftARM"
+    # kinesis_type_1 = "bitingALemon"
+    # kinesis_type_2 = "blah blah" # ect. ect. (there are allot of them)
+
+    # Assign the chosen kenisis metrics to our callback function
+    unsubscribe = neurosity.kinesis(kinesis_type_1, callback)
+    unsubscribe2 = neurosity.kinesis(kinesis_type_2, callback)
+
+    # If you uncomment any of these, it will break the code:
 
     # unsubscribe = neurosity.brainwaves_raw(callback)
     # unsubscribe = neurosity.focus(callback)
+
+    # ^ | Reason why I kept them here is just to demostrate
+    # ^ | that you can use the Neurosity API to get other 
+    # ^ | metrics - not just the 'kenisis' functionality.)
+    #   | 
+    #   | This includes being able to get the raw EEG data
+    #   | for free!!)
+    #   | 
+    #   | Use Neurosity's Docs to explore: 
+    #   | https://github.com/neurosity/neurosity-sdk-python 
 
 
 def callback(data):

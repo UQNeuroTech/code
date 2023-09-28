@@ -30,23 +30,39 @@ def main():
     # Initialise micromelon rover
     roverInit()
 
-    unsubscribe = neurosity.kinesis("rightArm", callback)
-    # unsubscribe = neurosity.kinesis("leftArm", callback)
+    # Please choose which kinesis metric you want to use:
+    kinesis_type = "rightARM"
+    # kinesis_type = "leftARM"
+    # kinesis_type = "bitingALemon"
+    # kinesis_type = "blah blah" # ect. ect. (there are allot of them)
+
+    # Assign the chosen kenisis metric to our callback function
+    unsubscribe = neurosity.kinesis(kinesis_type, callback)
+
+    # If you uncomment any of these, it will break the code:
 
     # unsubscribe = neurosity.brainwaves_raw(callback)
     # unsubscribe = neurosity.focus(callback)
 
+    # ^ | Reason why I kept them here is just to demostrate
+    # ^ | that you can use the Neurosity API to get other 
+    # ^ | metrics - not just the 'kenisis' functionality.)
+    #   | 
+    #   | This includes being able to get the raw EEG data
+    #   | for free!!)
+    #   | 
+    #   | Use Neurosity's Docs to explore: 
+    #   | https://github.com/neurosity/neurosity-sdk-python 
+
 
 def callback(data):
+    """ Our call back function for handling kenisis data"""
+
     # Switch light off/on
     print(data['metric'], data['label'], ":", data['confidence'])
 
-    # global Motors
-
     global last_trigger
     
-    # time.sleep(1)
-    # Motors.moveDistance(int(forwardDistance))
     current_trigger = time.time()
 
     diff = current_trigger - last_trigger
@@ -55,6 +71,7 @@ def callback(data):
     if ((diff > 3) & (data['confidence'] > 0.9)):
         Motors.moveDistance(int(forwardDistance))
         last_trigger = current_trigger
+
 
 def roverInit():
     """Initialize the Micromelon rover"""
