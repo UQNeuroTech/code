@@ -2,6 +2,7 @@
 
 Find all of UQ NeuroTech's open source code here!
 
+
 ## mind-bot-race
 
 This folder contains all of the demo code for our annual mind-controlled robot race.
@@ -19,6 +20,9 @@ Use this demo code if you are competing with a Neurosity Crown EEG headset.
 Use this demo code if you are competing with a MYO Armband EMG headset.
 
 
+## neurosity-ros2-node
+
+Coming soon!
 
 # Contributers:
 
