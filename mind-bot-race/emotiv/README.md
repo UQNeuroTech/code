@@ -1,6 +1,5 @@
 # Mind-Bot Race Demo code for Emotiv Headsets 
-
-...is complete, but not yet uploaded
+Download MBR2023 Emotiv.py to your device. Make sure you read the instructions carefully.
 
 # Contributers:
 
