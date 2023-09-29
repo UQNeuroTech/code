@@ -4,5 +4,5 @@
 
 # Contributers:
 
-1. Devin Barui
-2. Seijun Stokes
+1. Devin "Big D" Barui
+2. Seijun "Mysterious Marcel" Stokes
