@@ -26,7 +26,7 @@ Coming soon!
 
 # Contributers:
 
-- Devin Barui
+- [Devin Barui](https://github.com/Devin-Barui)
 - [Reuben Richardson](https://github.com/Dooganar)
 - Ayman Diallo
 - [Seijun Stokes](https://github.com/kintetsuu)
