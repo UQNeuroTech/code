@@ -5,4 +5,4 @@
 # Contributers:
 
 1. Devin "Big D" Barui
-2. Seijun "Marcel, Mystery" Stokes
+2. Seijun "Marcel" Stokes
