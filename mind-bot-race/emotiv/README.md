@@ -4,5 +4,5 @@
 
 # Contributers:
 
-1. Devin
+1. Devin Barui
 2. Seijun Stokes
