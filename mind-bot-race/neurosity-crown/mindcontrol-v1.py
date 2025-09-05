@@ -37,7 +37,7 @@ def main():
     # kinesis_type = "blah blah" # ect. ect. (there are allot of them)
 
     # Assign the chosen kenisis metric to our callback function
-    unsubscribe = neurosity.kinesis(kinesis_type, callback)
+    unsubscribe = neurosity.kinesis_predictions(kinesis_type, callback)
 
     # If you uncomment any of these, it will break the code:
 

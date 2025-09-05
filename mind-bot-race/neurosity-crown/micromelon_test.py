@@ -2,7 +2,7 @@ from micromelon import *
 
 rc = RoverController()
 
-rc.connectBLE(83)
+rc.connectBLE(145)
 rc.startRover()
 
 while True:
