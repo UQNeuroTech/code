@@ -37,8 +37,8 @@ def main():
     roverInit()
 
     # unsubscribe = neurosity.brainwaves_raw(callback)
-    unsubscribe = neurosity.kinesis("rightArm", callback)
-    unsubscribe2 = neurosity.kinesis("leftArm", callback2)
+    unsubscribe = neurosity.kinesis_predictions("rightArm", callback)
+    unsubscribe2 = neurosity.kinesis_predictions("leftArm", callback2)
     
     # unsubscribe = neurosity.focus(callback)
 

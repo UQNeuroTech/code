@@ -22,5 +22,5 @@ def callback(data):
     print("Right Arm:", data.probability)
 
 # unsubscribe = neurosity.brainwaves_raw(callback)
-unsubscribe = neurosity.kinesis("rightArm", callback)
+unsubscribe = neurosity.kinesis_predictions("rightArm", callback)
 
